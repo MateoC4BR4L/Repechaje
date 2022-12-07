@@ -29,6 +29,8 @@ public class SumaHandler : BaseHandler
             if(this.CanHandle(text))
             {
                 this.state = 2;
+                suma = 0;
+                numeros = "";
                 return "Ha elegido Sumar, ingrese un número: ";
             }
             else
@@ -41,7 +43,8 @@ public class SumaHandler : BaseHandler
             if(text.ToUpper() == "NADA")
             {
                 this.state = 1;
-                return numeros + " = " + suma;
+                numeros = numeros + " = " + suma;
+                return numeros;
             }
             try
             {

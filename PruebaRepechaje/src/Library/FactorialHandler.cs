@@ -2,7 +2,7 @@ namespace Library;
 
 public class FactorialHandler : BaseHandler
 {
-
+    int result = 1;
     public FactorialHandler()
     {
         this.KeyWord = "FACTORIAL";
@@ -30,8 +30,10 @@ public class FactorialHandler : BaseHandler
             }
             else
             {
-                this.Next.Handle(text);
-                return "";
+                if(Next != null)
+                return this.Next.Handle(text);
+
+                return "No se ha podido manejar el dato ingresado.";
             }
         }
         else
@@ -39,12 +41,12 @@ public class FactorialHandler : BaseHandler
             try
             {
                 this.state = 1;
-                int result = Int32.Parse(text);
-                for(int i = Int32.Parse(text) - 1; i == 1; i--)
+                result = Int32.Parse(text);
+                int num = Int32.Parse(text);
+                for(int i = num; i == 1; i -= 1)
                 {
-                    result *= i;
+                    result = result * i;
                 }
-            
 
                 return $"{text}! = {result}";
             }

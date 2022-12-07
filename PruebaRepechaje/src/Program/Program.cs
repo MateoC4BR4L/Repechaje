@@ -11,7 +11,7 @@ public class Program
 
         while(true)
         {
-            string dato;
+            string dato = "";
             Console.WriteLine("¿Qué operación desea realizar? (Suma o Factorial)");
             dato = h1.Handle(Console.ReadLine());
             if(dato == "Ha elegido factorial, Ingrese un número: ")
